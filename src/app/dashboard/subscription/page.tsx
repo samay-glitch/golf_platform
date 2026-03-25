@@ -4,15 +4,20 @@ import { Button } from '@/components/ui/button'
 import { CreditCard, Check, Zap, Shield, Heart, Trophy, Loader2, ExternalLink } from 'lucide-react'
 import { createCheckoutSession, createBillingPortalSession } from './actions'
 import { SubscriptionSubmitButton } from './submit-button'
+import { SubscriptionSuccessHandler } from './success-handler'
+import { Suspense } from 'react'
 
 export default async function SubscriptionPage() {
   const user = await getUser()
   const profile = await getProfile()
 
-  const isSubscriber = profile?.role === 'subscriber'
+  const isSubscriber = profile?.role === 'subscriber' || profile?.role === 'admin'
 
   return (
     <div className="space-y-8">
+      <Suspense fallback={null}>
+        <SubscriptionSuccessHandler />
+      </Suspense>
       <div>
         <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Subscription</h2>
         <p className="text-muted-foreground">Manage your plan and billing details.</p>
