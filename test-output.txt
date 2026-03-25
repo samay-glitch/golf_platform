@@ -1,0 +1,2 @@
+[dotenv@17.3.1] injecting env (8) from .env.local -- tip: ΓÜÖ∩╕Å  suppress all logs with { quiet: true }
+SUCCESS: https://checkout.stripe.com/c/pay/cs_test_a1e2IR76ocQXUBeTucegl5alM07Jrm0y8iOH628DrXUu2N6ZIOakrnhhHG#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdkdWxOYHwnPyd1blpxYHZxWjA0UUBQZlxVUlNXbnBucjJ8MVZWdDd3clZON3E9UWtia3M0TlR2XG0yX2RhNkRjN2FCU1Byb3R0S3JqTm5kYHNofU0wT29cQGlnaGlgT0M9QWF0QklzV2MyNTVCM0A2UkZufCcpJ2N3amhWYHdzYHcnP3F3cGApJ2dkZm5id2pwa2FGamlqdyc%2FJyZjY2NjY2MnKSdpZHxqcHFRfHVgJz8ndmxrYmlgWmxxYGgnKSdga2RnaWBVaWRmYG1qaWFgd3YnP3F3cGB4JSUl
