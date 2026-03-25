@@ -182,8 +182,49 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="lg:w-1/2 relative"
             >
-              <div className="aspect-square md:aspect-4/3 rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 relative shadow-2xl">
-                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1593113565694-c08ce3863010?q=80&w=2670&auto=format&fit=crop')] bg-cover bg-center" />
+              <div className="aspect-square md:aspect-4/3 rounded-2xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 relative shadow-2xl p-8 flex flex-col justify-between">
+                {/* Header */}
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-green-400 mb-2">Community Impact</p>
+                  <h3 className="text-2xl font-bold text-white">Where Your Money Goes</h3>
+                </div>
+
+                {/* Breakdown bars */}
+                <div className="space-y-5 my-4">
+                  {[
+                    { label: 'Prize Pool', pct: 50, color: 'bg-amber-400', val: '50%' },
+                    { label: 'Charity Donation', pct: 10, color: 'bg-green-400', val: '10%+' },
+                    { label: 'Platform & Ops', pct: 40, color: 'bg-slate-500', val: '40%' },
+                  ].map((item) => (
+                    <div key={item.label}>
+                      <div className="flex justify-between text-sm mb-1.5">
+                        <span className="text-slate-300 font-medium">{item.label}</span>
+                        <span className="text-white font-bold">{item.val}</span>
+                      </div>
+                      <div className="h-2.5 bg-slate-700 rounded-full overflow-hidden">
+                        <div
+                          className={`h-full ${item.color} rounded-full`}
+                          style={{ width: `${item.pct}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Charity category chips */}
+                <div>
+                  <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-3">Supported Causes</p>
+                  <div className="flex flex-wrap gap-2">
+                    {['🌲 Environment', '❤️ Health', '📚 Education', '🐾 Animals', '🏠 Homelessness', '⚽ Youth Sport'].map((tag) => (
+                      <span key={tag} className="text-xs bg-slate-700 text-slate-200 rounded-full px-3 py-1 font-medium">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Decorative glow */}
+                <div className="absolute top-0 right-0 w-48 h-48 bg-green-500/10 rounded-full blur-3xl pointer-events-none" />
               </div>
               
               {/* Floating Stat Card */}
