@@ -4,9 +4,10 @@ import { NextResponse } from 'next/server'
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     await requireAdmin()
     const supabase = createAdminClient()
     const { status, note } = await request.json()
@@ -18,7 +19,7 @@ export async function PUT(
     const { data, error } = await supabase
       .from('winners')
       .update({ status, updated_at: new Date().toISOString() })
-      .eq('id', params.id)
+      .eq('id', id)
       .select()
       .single()
 
