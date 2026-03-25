@@ -30,7 +30,7 @@ export default async function HowItWorksPage() {
       </div>
 
       {/* Main Steps */}
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-3 gap-8 pt-10">
         {[
           { 
             step: '01', 
@@ -54,7 +54,7 @@ export default async function HowItWorksPage() {
             color: 'bg-amber-50 text-amber-600'
           }
         ].map((item, i) => (
-          <Card key={i} className="border-none shadow-xl bg-white dark:bg-slate-800 relative pt-8">
+          <Card key={i} className="border-none shadow-xl bg-white dark:bg-slate-800 relative pt-8 overflow-visible">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-slate-900 border-4 border-white dark:border-slate-800 flex items-center justify-center text-white font-bold text-xl">
                {item.step}
             </div>
