@@ -223,22 +223,22 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Decorative glow */}
-                <div className="absolute top-0 right-0 w-48 h-48 bg-green-500/10 rounded-full blur-3xl pointer-events-none" />
+                {/* Bottom stat row */}
+                <div className="border-t border-slate-700 pt-4 mt-2 flex items-center justify-between">
+                  <div>
+                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Raised</p>
+                    <p className="text-3xl font-bold text-green-400">$142,500+</p>
+                    <p className="text-xs text-slate-400 mt-1">For charities this year alone</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Members</p>
+                    <p className="text-3xl font-bold text-white">2,400+</p>
+                    <p className="text-xs text-slate-400 mt-1">Active subscribers</p>
+                  </div>
+                </div>
               </div>
               
-              {/* Floating Stat Card */}
-              <motion.div 
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                className="absolute -bottom-6 -left-6 md:-bottom-10 md:-left-10 bg-white dark:bg-slate-800 p-6 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 max-w-xs"
-              >
-                 <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Total Raised</p>
-                 <p className="text-4xl font-bold text-green-600 dark:text-green-400">$142,500+</p>
-                 <p className="text-sm text-slate-600 dark:text-slate-400 mt-2">For local and national charities this year alone.</p>
-              </motion.div>
+
             </motion.div>
           </div>
         </div>
