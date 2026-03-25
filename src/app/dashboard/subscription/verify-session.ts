@@ -41,8 +41,11 @@ export async function verifyCheckoutSession(sessionId: string) {
         : new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
     })
 
-    // Update user role to subscriber
-    await supabase.from('profiles').update({ role: 'subscriber' }).eq('id', user.id)
+    // Update user role to subscriber (but don't downgrade admins)
+    const { data: currentProfile } = await supabase.from('profiles').select('role').eq('id', user.id).single()
+    if (currentProfile?.role !== 'admin') {
+      await supabase.from('profiles').update({ role: 'subscriber' }).eq('id', user.id)
+    }
 
     return { success: true }
   } catch (err: any) {

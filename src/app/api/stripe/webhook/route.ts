@@ -44,8 +44,11 @@ export async function POST(req: Request) {
         current_period_end: new Date((subscription as Stripe.Subscription).current_period_end * 1000).toISOString(),
       })
 
-      // Update user role to subscriber
-      await supabase.from('profiles').update({ role: 'subscriber' }).eq('id', userId)
+      // Update user role to subscriber (don't downgrade admins)
+      const { data: profile } = await supabase.from('profiles').select('role').eq('id', userId).single()
+      if (profile?.role !== 'admin') {
+        await supabase.from('profiles').update({ role: 'subscriber' }).eq('id', userId)
+      }
     }
   }
 
@@ -68,7 +71,10 @@ export async function POST(req: Request) {
         // Demote back to public if canceled/past due
         await supabase.from('profiles').update({ role: 'public' }).eq('id', userId)
       } else {
-        await supabase.from('profiles').update({ role: 'subscriber' }).eq('id', userId)
+        const { data: profile } = await supabase.from('profiles').select('role').eq('id', userId).single()
+        if (profile?.role !== 'admin') {
+          await supabase.from('profiles').update({ role: 'subscriber' }).eq('id', userId)
+        }
       }
     }
   }
