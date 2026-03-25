@@ -182,7 +182,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="lg:w-1/2 relative"
             >
-              <div className="aspect-square md:aspect-4/3 rounded-2xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 relative shadow-2xl p-8 flex flex-col justify-between">
+              <div className="min-h-80 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 relative shadow-2xl p-8 flex flex-col justify-between gap-6">
                 {/* Header */}
                 <div>
                   <p className="text-xs font-bold uppercase tracking-widest text-green-400 mb-2">Community Impact</p>

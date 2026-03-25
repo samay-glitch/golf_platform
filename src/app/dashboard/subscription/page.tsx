@@ -84,8 +84,8 @@ export default async function SubscriptionPage() {
             </ul>
           </CardContent>
           <CardFooter>
-            <Button variant="outline" className="w-full" disabled={!isSubscriber}>
-              {!isSubscriber ? 'Current Plan' : 'Downgrade'}
+            <Button variant="outline" className="w-full" disabled>
+              {isSubscriber ? 'Free Tier' : 'Current Plan'}
             </Button>
           </CardFooter>
         </Card>
